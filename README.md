@@ -1,8 +1,8 @@
-===
+# Vagrant-redis-cluster
 
-Vagrant-redis-cluster
+Deploys a minimal redis cluster with 2 redis servers, one master and one slave and two sentinel instances.
 
-Tools deployed
+### Tools deployed
 * redis
 * sentinel
 
@@ -10,8 +10,7 @@ Tools used in preparation
 * Vagrant
 * Ansible
 
-
-How to run
+### How to run:
 
 Clone the project
 ```

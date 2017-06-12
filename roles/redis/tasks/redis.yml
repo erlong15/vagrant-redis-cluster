@@ -67,7 +67,7 @@
 
 - name: create redis init script
   template:
-    src: "redis.init.d.j2"
+    src: "redis.init.j2"
     dest: /etc/init.d/redis
     mode: 0755
   become: true
