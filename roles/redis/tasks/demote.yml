@@ -1,0 +1,6 @@
+---
+- name: Scheduleding downtime for '{{ inventory_hostname }}' on checkmk
+  check_mk:
+    action: "suspend"
+    host: "{{ inventory_hostname  }}"
+  become: true

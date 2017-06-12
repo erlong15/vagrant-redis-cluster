@@ -1,0 +1,5 @@
+---
+- hosts: "redis"
+  serial: 2
+  roles:
+    - role: redis

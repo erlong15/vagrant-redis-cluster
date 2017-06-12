@@ -1,0 +1,38 @@
+---
+redis_repo_url: "http://download.redis.io/releases/redis-3.2.8.tar.gz"
+redis_filename: "redis-3.2.8.tar.gz"
+redis_output_folder: "redis-3.2.8"
+
+#redis_quorum: "2"
+redis_version: "redis-3.2.8"
+
+redis_service_name: redis
+redis_server_name: redis
+redis_user: redis
+redis_group: redis
+redis_port: 6379
+
+redis_download_path: "/tmp/redis"
+
+redis_log_dir: "/export/logs/redis"
+redis_install_dir: "/export/local/redis"
+redis_datadir: "/export/data/redis"
+redis_conf_dir: "/export/local/redis/config"
+
+redis_pidfile: "/var/run/redis.pid"
+redis_sentinel_pidfile: "/var/run/sentinel.pid"
+
+redis_sentinel_dir: "/export/local/redis"
+redis_logfile: '""'
+redis_nofile_limit: 16384
+
+redis_sentinel_service_name: sentinel
+redis_sentinel_port: 26379
+redis_sentinel_bind: ""
+redis_sentinel_name: "mymaster"
+redis_sentinel_down_after_milliseconds: 60000
+redis_sentinel_failover_timeout: 180000
+redis_sentinel_parallel_syncs: 1
+
+
+app_timeout: 180

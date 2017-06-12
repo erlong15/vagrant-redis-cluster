@@ -1,0 +1,56 @@
+---
+# Stop Sentinel
+- name: "Check if service {{ redis_sentinel_service_name }} exists"
+  stat: path=/etc/init.d/sentinel
+  register: sentinel_service_status
+
+- name: "Ensure sentinel is stopped"
+  service:
+    name: "sentinel"
+    state: stopped
+    enabled: yes
+  when: sentinel_service_status.stat.exists
+  become: true
+
+#- name: "Wait for instances to stop listen on port {{ redis_sentinel_port }}"
+#  wait_for:
+#    state: stopped
+#    host: "{{ inventory_hostname }}"
+#    port: "{{ redis_sentinel_port }}"
+#    timeout: "{{ app_timeout }}"
+#  when: sentinel_service_status.stat.exists
+#  become: true
+
+# Stop Redis
+- name: "Check if service redis exists"
+  stat: path=/etc/init.d/redis
+  register: redis_service_status
+
+- name: "Ensure redis is stopped"
+  service:
+    name: "redis"
+    state: stopped
+    enabled: yes
+  when: redis_service_status.stat.exists
+  become: true
+#
+#- name: "Check if {{ service_name }} service exists"
+#  stat: path={{ redis_install_dir }}/bin/redis-cli
+#  register: redis_service_status
+#
+#- name: "Service {{ redis_service_name }} stop"
+#  command: "cd {{ redis_install_dir }} && sudo -u {{ redis_user}} bin/redis-cli shutdown && sleep 1"
+#  when: redis_service_status.stat.exists
+#  become: true
+#
+#- name: "Wait for instances to stop listen on port {{ redis_port }}"
+#  wait_for:
+#    state: stopped
+#    host: "{{ inventory_hostname }}"
+#    port: "{{ redis_port }}"
+#    timeout: "{{ app_timeout }}"
+#  when: redis_service_status.stat.exists
+#  become: true
+
+
+
