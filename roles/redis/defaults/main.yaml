@@ -6,10 +6,10 @@ redis_output_folder: "redis-3.2.8"
 #redis_quorum: "2"
 redis_version: "redis-3.2.8"
 
-redis_service_name: redis
-redis_server_name: redis
-redis_user: redis
-redis_group: redis
+redis_service_name: "redis"
+redis_server_name: "redis"
+redis_user: "redis"
+redis_group: "redis"
 redis_port: 6379
 
 redis_download_path: "/tmp/redis"
