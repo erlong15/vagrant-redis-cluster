@@ -26,7 +26,7 @@ redis_sentinel_dir: "/export/local/redis"
 redis_logfile: '""'
 redis_nofile_limit: 16384
 
-redis_sentinel_service_name: sentinel
+redis_sentinel_service_name: "sentinel"
 redis_sentinel_port: 26379
 redis_sentinel_bind: ""
 redis_sentinel_name: "mymaster"
