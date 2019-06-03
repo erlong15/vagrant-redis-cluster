@@ -1,5 +1,0 @@
----
-- name: Removing downtime for '{{ inventory_hostname }}' on checkmk
-  check_mk:
-    action: "enable"
-    host: "{{ inventory_hostname  }}"
