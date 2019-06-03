@@ -1,0 +1,44 @@
+- name: install remi repo
+  hosts: all
+  become: yes
+  roles:
+    - geerlingguy.repo-remi
+  tasks:
+    - name: install latest redis
+      yum:
+        name: redis
+        state: latest
+    - name: set slaves
+      lineinfile:
+        path: /etc/redis-sentinel.conf
+        line: 'sentinel monitor otusmaster 192.168.9.41 6379 2'
+    - name: Enable redis-sentinel and start
+      service:
+        name: redis-sentinel
+        enabled: yes
+        state: started
+
+- name: start master
+  hosts: redis-master
+  become: yes  
+  tasks:
+    - name: Enable redis and start
+      service:
+        name: redis
+        enabled: yes
+        state: started
+ 
+- name: config cluster
+  hosts: redis-slave
+  become: yes
+  tasks:
+    - name: set slaves
+      lineinfile:
+        path: /etc/redis.conf
+        line: 'slaveof 192.168.9.41 6379'
+    - name: Enable redis and start
+      service:
+        name: redis
+        enabled: yes
+        state: started
+
