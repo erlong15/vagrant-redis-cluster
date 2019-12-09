@@ -1,0 +1,3 @@
+RABBIT_HOST= '10.51.21.57:5672'
+QUEUE_TOPIC = 'otus'
+
