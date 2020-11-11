@@ -1,0 +1,11 @@
+[redis-master]
+192.168.9.40
+
+[redis-slave]
+192.168.9.41
+192.168.9.42
+
+[redis-sentinel]
+192.168.9.40 redis_sentinel=True
+192.168.9.41 redis_sentinel=True
+192.168.9.42 redis_sentinel=True
