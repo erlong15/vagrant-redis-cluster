@@ -6,8 +6,8 @@ import json
 #import config as cfg
 
 # Connect to RabbitMQ and create channel
-credentials = pika.PlainCredentials('guest', 'guest')
-parameters = pika.ConnectionParameters('192.168.9.41', 5672, '/', credentials)
+credentials = pika.PlainCredentials('guest', 'CTOsO65A6QRcuozmavJCuoia')
+parameters = pika.ConnectionParameters('127.0.0.1', 5673, '/', credentials)
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 

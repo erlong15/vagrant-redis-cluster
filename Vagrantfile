@@ -40,19 +40,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       end # provider
 
-      config.vm.provision :ansible do |ansible|
-            ansible.playbook = "site.yml"
-            #ansible.inventory_path = "otus.inv"
-            ansible.groups = {
-              "redis-slave" => ["redis02", "redis03"],
-              "redis-master"  => ["redis01"],
-              "redis-sentinel" => ["redis01", "redis02", "redis03"]
-            }
-
-            # if you want to fire ansible on all machines at parallel, use this!
-            ansible.limit = 'all'
-            if ENV['ANSIBLE_TAGS'] then ansible.tags = ENV['ANSIBLE_TAGS']; end
-      end
     end
   end
 end
